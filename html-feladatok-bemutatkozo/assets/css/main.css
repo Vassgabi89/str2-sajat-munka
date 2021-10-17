@@ -1,0 +1,218 @@
+@font-face {
+    font-family: "Roboto";
+    src: url(/fonts/Roboto-Light.ttf);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: "Roboto";
+    background: lightslategray;
+    /*background-image: url("/img/innovation-banner.jpg");
+    background-size: 100%;*/
+}
+
+main {
+    margin: 5em;
+}
+
+header, footer {
+    background: black;
+    color: aliceblue;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+    padding-left: 2em;
+}
+
+
+header.logo {
+    text-align: right;
+    padding: 1em;
+    font-size: 1.5em;  
+}
+
+.qoute {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: italic;
+    color: aliceblue;
+    text-align: left;
+    vertical-align: top;
+    line-height: 0.8em;
+}
+
+.home {
+    background-color: black;
+    font-family: "Roboto";
+    color: aliceblue;
+    position: relative;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 6em;
+    margin-bottom: 6em;
+    padding-top: 2em;
+    justify-content: center;
+    text-align: center;
+}
+
+.box {
+    color: aliceblue;
+    background-color: black;
+    float: left;
+    width: 25%;
+    margin-left: 2%;
+    margin-right: 2%;
+    padding: 1em;
+}
+
+
+
+
+footer {
+    margin-top: 30em;
+}
+
+li {
+    padding: 0.5em;
+}
+
+li.a {
+    padding:0px;
+}
+
+.backToTop {
+    background-color: lightslategray;
+    float:right;
+    padding:1em;
+    margin-top:3.6em;
+    margin-right:3.6em;
+}
+
+.resize {
+    padding: 8rem 0 6rem 0 ;}
+    @media only screen and (max-width: 1280px) {
+      .resize {
+        padding: 4rem 0 2rem 0 ; } }
+    @media only screen and (max-width: 800px) {
+      .resize {
+        padding: 3rem 0 1rem 0 ; } }
+
+        .inner {
+            max-width: calc(100% - 6rem);
+    margin-left: 5em;
+    margin-right: 5em;}
+        @media only screen and (max-width: 800px) {
+              .inner {
+    margin-left: 5em;
+    margin-right: 5em;
+                max-width: calc(100% - 3rem); } }
+
+.works {
+    background-color: black;
+    font-family: "Roboto";
+    color: aliceblue;
+    padding: 2rem;
+margin-bottom: 2em;}
+
+    .workbox {
+        float: left;
+        
+    }
+    .workbox2 {
+        color: aliceblue;
+        background-color: black;
+        float: right;
+        
+    }
+
+body.proba {
+    background-color: black; }
+    
+    @media only screen and (max-width: 1280px) {
+        body.proba {
+            background-color: green; } }
+    @media only screen and (max-width: 736px) {
+        body.proba {
+            background-color:yellow; } }
+    @media only screen and (max-width: 480px) {
+        body.proba {
+            background-color:red; } }
+
+section.img {
+    max-width: calc(100% - 6rem);
+    margin-left: 10em;
+    margin-right: 10em;
+}
+            .imgbox {
+                width: 20rem;
+                height: 20rem;
+                margin: 1rem;
+                box-shadow: 5px 10px 5px 1px black;
+            }
+
+.about.body {
+        background-image: url('/img/innovation-banner.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: 50% 50%;
+
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 50px;
+  }
+
+  .grid-container2 {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 50px;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .grid-container {
+        display: grid;
+        grid-template-columns: auto;
+        grid-gap: 50px;
+      } 
+      .grid-container2 {
+        display: grid;
+        grid-template-columns: auto;
+        grid-gap: 50px;
+      }
+    }
+
+      .flex-container {
+        display: flex;
+        flex-direction:row;
+        justify-content: center;
+      }
+
+      @media only screen and (max-width: 768px) {
+        .flex-container {
+            display: flex;
+            flex-direction:row;
+            justify-content: center;
+          } }
+  /*
+.container {
+    display: table;
+    table-layout: fixed; 
+    width: 100%;
+  }
+  
+  .section {
+    display: table-cell;
+    border: 1px solid;
+  }
+
+  @media only screen and (max-width: 768px) { 
+    .section {
+      display: block;
+    }
+  }*/
