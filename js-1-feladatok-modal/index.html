@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <title>Modal</title>
+</head>
+<body>
+
+    <h1> This page is intended to introduce <strong>Modal</strong></h1>
+
+    <section>
+        <article>
+            <h3>What is Modal and how to use it</h3>
+            <p>
+                The Modal component consists of an overlay, a dialog and an optional close button.You can use any element to toggle a modal dialog.
+                To enable the necessary JavaScript, add the uk-toggle attribute.An <code>&lta&gt</code> element needs to be linked to the modal's id.
+                If you are using another element, like a button, just add the <code>uk-toggle="target: #ID"</code>
+                attribute to target the id of the modal container.
+                Add the uk-modal attribute to a <code>&ltdiv&gt</code> element to create the modal container and an overlay that blanks out the page.
+                It is important to add an id to indicate the element for toggling. Use the following classes to define the modal's sections.
+            </p>
+        </article>
+
+        <article style="display: flex;">
+            <ul class="firstUl" style="flex:20%; min-width: 135px; ">
+                <lh style="font-weight: 900;">Class</lh>
+                <li>
+                    <code>.uk-modal-dialog</code>
+                </li>
+                <li>
+                    <code>.uk-modal-body</code>
+                </li>
+                <li>
+                    <code>.uk-modal-title</code>
+                </li>
+                <li>
+                    <code>.uk-modal-close</code>
+                </li>
+            </ul>
+            <ul class="firstUl" style="flex:75%;">
+                <lh style="font-weight: 900;">Description</lh>
+                <li>
+                    Add this class to a child <code>&ltdiv&gt</code> element to create the dialog.
+                </li>
+                <li>
+                    Add this class to create padding between the modal and its content.
+                </li>
+                <li>
+                    Add this class to a heading element to create the modal title.
+                </li>
+                <li>
+                    Add this class to an <code>&lta&gt</code> or <code>&ltbutton&gt</code> element to create a close button and enable its functionality.
+                </li>
+            </ul>
+        </article>
+
+        <article>
+            <h3>How it works</h3>
+            <p>Before getting started with Bootstrap’s modal component,
+                be sure to read the following as our menu options have recently changed.</p>
+                <ul>
+                    <lh>Description</lh>
+                    <li>
+                        Modals are built with HTML, CSS, and JavaScript.
+                        They’re positioned over everything else in the document and remove scroll from the <code>&ltbody&gt</code>  so that modal content scrolls instead.
+                    </li>
+                    <li>
+                        Clicking on the modal “backdrop” will automatically close the modal.
+                    </li>
+                    <li>
+                        Bootstrap only supports one modal window at a time.
+                        Nested modals aren’t supported as we believe them to be poor user experiences.
+                    </li>
+                    <li>
+                        Modals use position: fixed, which can sometimes be a bit particular about its rendering.
+                        Whenever possible, place your modal HTML in a top-level position to avoid potential interference from other elements.
+                        You’ll likely run into issues when nesting a .modal within another fixed element.
+                    </li>
+                </ul>
+        </article>
+    </section>
+    <div style="text-align: center; margin-top: 5rem;">
+    <h2 style="margin-bottom:3rem;">There is a button here to try the modal yourself:</h2>
+    <button id="openModal" class="openModal">TRY MODAL</button>
+    </div>
+
+    <div id="modal">
+        <div class="modalHeader">
+            <button id="closeModal1">X</button> <!--SPAN??-->
+            <h1>Hi! I'm modal</h1>
+        </div>
+        <div class="modalContent">
+            <p style="padding: 20px; padding-top: 0;">I know I can be really annoying, when you just want to read <br> something and suddenly I pop up from nowhere.
+            <br> But stay calm, I'm just wanted to say hi. <br> Now, you can close me with the red X button in the corner <br> or just click somewhere outside of me.</p>
+            <h4>Goodbye!</h4>
+            <h4>We'll meet soon ;)</h4>
+        </div>
+        <div class="modalFooter">
+            <button id="closeModal3">Cancel</button>
+            <button id="closeModal2">Okey</button>
+        </div>
+    </div>
+    <div id="overlay"></div>
+
+    <script src="./assets/js/main.js"></script>
+    
+</body>
+</html>
