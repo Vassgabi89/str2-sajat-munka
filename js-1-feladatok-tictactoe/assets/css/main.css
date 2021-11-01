@@ -1,0 +1,161 @@
+@font-face {
+    font-family: "Roboto", sans-serif;
+    font-family: 'Indie Flower', cursive;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: "Roboto";
+    background-image: url('../../img/teahub.io-relaxing-desktop-wallpaper-1737732.png');
+    background-size: auto 110%;
+    background-repeat: no-repeat;
+}
+
+h1,
+h2,
+h4 {
+    color: aliceblue;
+    text-shadow: 1px 1px black;
+    text-align: center;
+    margin-block-start: 0.2em;
+    margin-block-end: 0.2em;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+.message,
+.message2 {
+    font-size: 2rem;
+    color: aliceblue;
+    text-shadow: 1px 1px black;
+    text-align: center;
+}
+
+table {
+    margin: auto;
+}
+
+td {
+    width: 200px;
+    height: 200px;
+
+}
+
+.cell {
+    width: 100%;
+    height: 100%;
+    font-family: 'Indie Flower';
+    font-size: 7rem;
+    color: white;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background-color: rgba(50, 160, 290, 0.3);
+    box-shadow: 2px 2px black;
+}
+
+.cell:hover {
+    background-color: rgba(159, 201, 237, 0.5);
+}
+
+.x {
+    color: rgb(252, 252, 252);
+}
+
+.o {
+    color: seagreen;
+}
+
+#newGameBtn {
+    font-size: 2rem;
+    display: block;
+    margin: auto;
+    background-color: rgba(50, 160, 290, 0.5);
+    border: none;
+    border-radius: 1px solid black;
+    box-shadow: 2px 2px black;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+}
+
+#newGameBtn:hover {
+    background-color: rgba(159, 201, 237, 0.5);
+    padding: 0.7rem 1.2rem;
+}
+
+#newGameBtn:active {
+    background-color: rgba(159, 201, 237, 1);
+    padding: 0.7rem 1.2rem;
+}
+
+.message span {
+    font-size: 2.5rem;
+}
+
+.music {
+    position: fixed;
+    top: 0.5rem;
+    right: 0.5rem;
+}
+
+
+@media only screen and (max-width: 900px) {
+    body {
+        background-size: auto 900px;
+        margin: auto;
+        width: 90%;
+        padding-bottom: 15%;
+    }
+
+    .music {
+        position: static;
+        text-align: center;
+        margin: 1rem 0;
+    }
+
+    h1,
+    h2 {
+        margin-block-start: 0.1em;
+        margin-block-end: 0.1em;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h4 {
+        display: none;
+    }
+
+    .message,
+    .message2 {
+        font-size: 1.5rem;
+    }
+
+    table {
+        margin: auto;
+    }
+
+    td {
+        width: 110px;
+        height: 110px;
+    }
+
+    .cell {
+        font-size: 4rem;
+    }
+
+    #newGameBtn {
+        font-size: 1.5rem;
+    }
+
+    .message span {
+        font-size: 2rem;
+    }
+
+}

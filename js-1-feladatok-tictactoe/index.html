@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Roboto:wght@300&display=swap');
+    </style>
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <title>Tic-tac-toe</title>
+</head>
+
+<body>
+
+    <h1>TIC-TAC-TOE</h1>
+
+    <h4>Avagy Amőba, vagy ahogy mi hívtuk matekórán a kockás füzetben, ötödölő... <br>
+        Az a játékos győz, akinek előbb sikerül egymás alatt, mellett vagy átlósan elhelyezni 3 azonos jelet.</h4>
+    <h2>S<span style="color:seagreen;">O</span><span style="color:indianred;">X</span>erencsét!</h2>
+
+    <table>
+        <tr>
+            <td>
+                <div data-cell="0" data-row="0" class="cell"></div>
+            </td>
+            <td>
+                <div data-cell="1" data-row="0" class="cell"></div>
+            </td>
+            <td>
+                <div data-cell="2" data-row="0" class="cell"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div data-cell="0" data-row="1" class="cell"></div>
+            </td>
+            <td>
+                <div data-cell="1" data-row="1" class="cell"></div>
+            </td>
+            <td>
+                <div data-cell="2" data-row="1" class="cell"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div data-cell="0" data-row="2" class="cell"></div>
+            </td>
+            <td>
+                <div data-cell="1" data-row="2" class="cell"></div>
+            </td>
+            <td>
+                <div data-cell="2" data-row="2" class="cell"></div>
+            </td>
+        </tr>
+    </table>
+
+    <div class="message">Let's play.</div>
+    <div class="message2"></div>
+    <button id="newGameBtn">New game</button>
+    <article class="music">
+        <audio autoplay loop controls id="relax">
+            <source src="./media/3 Minute Timer - Calm and Relaxing Music.mp3" type="audio/mpeg">
+        </audio>
+    </article>
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
