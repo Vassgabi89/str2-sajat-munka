@@ -1,0 +1,32 @@
+@font-face {
+    font-family: "Cyberverse";
+    src: url(../fonts/Cyberverse.otf);
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+div {
+    font-family: "Cyberverse";
+    color: darkgray;
+    display: block;
+    line-height: 33.3vh;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 10em;
+}
+
+.red {
+    color: red;
+}
+
+
+@media only screen and (max-width: 1000px) {
+    div {
+        font-size: 3em;
+    }
+}
