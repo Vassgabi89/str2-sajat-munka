@@ -4,10 +4,22 @@ music.volume = 0.5;
 let allCharacters = []
 
 const compare = (a, b) => {
-  if (a.name < b.name) {
+  let nameOne = a.name
+  let nameTwo = b.name
+  const space = / /
+  if (a.name.match(space)) {
+    let lastNameA = a.name.slice(a.name.match(space).index, a.name.length)
+    nameOne = lastNameA
+  }
+  if (b.name.match(space)) {
+    let lastNameB = b.name.slice(b.name.match(space).index, b.name.length)
+    nameTwo = lastNameB
+  }
+
+  if (nameOne < nameTwo) {
     return -1
   }
-  if (a.name > b.name) {
+  if (nameOne > nameTwo) {
     return 1
   }
   return 0
