@@ -1,0 +1,13 @@
+Fejlesztési lehetőségek (és plusz pontok):
+
+Közben:
+Ahol lehet, használj object destructuring-ot
+Az adatok lekérése az inputokból dynamic properties segítségével történjen
+
+Végén:
+Real-time validálás (input border color és hibaüzenet)
+Accessibility-re: ahol click esemény működik, ott az Enter billentyűleütés is működjön.. ÉS MÉG?
+nyelvválasztás menüben és mentése localStorage-ban és többnyelvű hibaüzenetek kiszervezve JSON fájlba
+A form szerializálására írj egy új helper function-t
+Fejlécbe: keresés, sorbaállítás, nyelvválasdztás opciók
+tömbösített törlés (checkbox)
