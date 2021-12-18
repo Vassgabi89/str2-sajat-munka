@@ -1,12 +1,12 @@
 @font-face {
     font-family: 'Catamaran';
-    src: url(./fonts/Catamaran.ttf);
+    src: url(../fonts/Catamaran.ttf);
     font-weight: 100;
 }
 
 @font-face {
     font-family: 'Lato';
-    src: url(./fonts/Lato.ttf);
+    src: url(../fonts/Lato.ttf);
     font-weight: 100;
 }
 
@@ -71,7 +71,7 @@ html {
 
 #new-age .nav-link {
     font-size: 10px;
-    color: rgb(214, 196, 213) !important;
+    color: rgb(214, 196, 213);
 }
 
 #new-age .nav-link:hover {
