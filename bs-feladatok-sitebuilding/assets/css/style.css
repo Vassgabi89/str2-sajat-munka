@@ -1,0 +1,365 @@
+@font-face {
+    font-family: 'Catamaran';
+    src: url(../fonts/Catamaran.ttf);
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url(../fonts/Lato.ttf);
+    font-weight: 100;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.catamaran {
+    font-family: 'Catamaran', Helvetica, Arial, sans-serif;
+}
+
+.lato {
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+}
+
+.muli {
+    font-family: 'Muli', Helvetica, Arial, sans-serif;
+}
+
+:root {
+    --primary-color: rgb(253, 204, 82);
+    --new-age-bg-left: rgb(217, 36, 51);
+    --new-age-bg-right: rgb(125, 66, 148);
+    --features-icon-color: rgb(178, 50, 93);
+    --footer-bg: rgb(34, 34, 34);
+}
+
+.rounded-pill {
+    font-family: 'Lato';
+    padding: 10px 35px 10px 35px;
+    letter-spacing: 2px;
+}
+
+.rounded-pill:hover {
+    background-color: var(--primary-color);
+    border: var(--primary-color);
+    transition: 300ms
+}
+
+*:hover {
+    transition: all 300ms;
+}
+
+/*NEW-AGE*/
+
+.navbar-brand {
+    color: var(--primary-color) !important;
+}
+
+.navbar-brand:hover {
+    color: white !important;
+}
+
+.scrolled .navbar-brand {
+    color: black !important;
+}
+
+.scrolled .navbar-brand:hover {
+    color: var(--primary-color) !important;
+}
+
+
+#new-age .nav-link {
+    font-size: 10px;
+    color: rgb(214, 196, 213);
+}
+
+#new-age .nav-link:hover {
+    color: white !important;
+}
+
+#new-age .scrolled .nav-link {
+    color: black !important;
+}
+
+#new-age .scrolled .nav-link:hover {
+    color: var(--primary-color) !important;
+}
+
+.scrolled {
+    background-color: white;
+}
+
+#new-age {
+    height: 850px;
+    background: url('/assets/img/bg-pattern.png'), linear-gradient(to right, var(--new-age-bg-left), var(--new-age-bg-right));
+    background-repeat: repeat;
+}
+
+#new-age-content {
+    padding-top: 130px;
+}
+
+#new-age h1 {
+    font-size: 45px;
+    line-height: 55px;
+}
+
+#phone {
+    height: 550px;
+}
+
+#phone-screen {
+    height: 425px;
+    position: relative;
+    bottom: 488px;
+    left: 17px;
+}
+
+/*DOWNLOAD*/
+
+#download,
+#contact {
+    background-color: var(--primary-color) !important;
+}
+
+#download {
+    height: 550px;
+}
+
+#download img {
+    width: 200px;
+}
+
+#download h1 {
+    font-weight: 500;
+}
+
+#download p {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+/*FEATURES*/
+
+#features {
+    height: 950px;
+}
+
+#features h1 {
+    font-size: 45px;
+    font-weight: 500;
+}
+
+#phone2 {
+    height: 550px;
+}
+
+#phone-screen2 {
+    height: 425px;
+    position: relative;
+    bottom: 490px;
+    left: 10px;
+}
+
+.iconDiv {
+    border-bottom: 1px solid;
+    border-image: linear-gradient(to right, #da2431, #7a4397);
+    border-image-slice: 1;
+}
+
+.icon {
+    font-size: 70px;
+    color: var(--features-icon-color);
+}
+
+/*STOPWAITING*/
+
+#stopWaiting {
+    height: 680px;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/assets/img/bg-cta.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+#stopWaiting h1 {
+    font-size: 70px;
+}
+
+/*CONTACT*/
+#contact {
+    height: 320px;
+}
+
+#contact h1 {
+    font-size: 50px;
+}
+
+#contact a {
+    border-radius: 100%;
+    opacity: 0.9;
+}
+
+#contact a:hover {
+    opacity: 1;
+}
+
+.twitter {
+    background-color: rgb(29, 161, 243);
+    padding: 30px 18px 15px 22px;
+}
+
+.facebook {
+    background-color: rgb(59, 89, 153);
+    padding: 30px 25px 15px 25px;
+}
+
+.gmail {
+    background-color: rgb(215, 74, 53);
+    padding: 30px 20px 15px 20px;
+}
+
+/*FOOTER*/
+
+footer {
+    height: 110px;
+    background-color: var(--footer-bg);
+}
+
+footer span {
+    cursor: pointer;
+}
+
+footer span:hover {
+    color: var(--primary-color) !important;
+}
+
+@media screen and (max-width: 991px) {
+
+    .rounded-pill {
+        padding: 15px 45px 15px 45px;
+    }
+
+    /*NEW-AGE*/
+    #new-age {
+        height: 1400px;
+        text-align: center;
+    }
+
+    #new-age .nav-link {
+        color: black;
+    }
+
+    .scrolled .navbar-brand {
+        color: var(--primary-color) !important;
+    }
+
+    #new-age .nav-link:focus {
+        color: var(--primary-color) !important;
+    }
+
+    #new-age h1 {
+        font-size: 40px;
+        line-height: 50px;
+    }
+
+    #phone {
+        height: 800px;
+    }
+
+    #phone-screen {
+        height: 615px;
+        left: 0;
+        bottom: 708px;
+    }
+
+    /*DOWNLOAD*/
+    #download {
+        height: 900px;
+    }
+
+    #download img {
+        width: 300px;
+    }
+
+    #download h1 {
+        font-weight: 500;
+        font-size: 80px;
+    }
+
+    #download p {
+        font-weight: 600;
+        font-size: 25px;
+    }
+
+    /*FEATURES*/
+    #features {
+        height: 3300px;
+    }
+
+    #features h1 {
+        font-size: 70px;
+        font-weight: 500;
+    }
+
+    #features P {
+        font-size: 25px;
+        font-weight: 600;
+    }
+
+    #phone2 {
+        height: 900px;
+    }
+
+    #phone-screen2 {
+        height: 695px;
+        position: absolute;
+        left: 164px;
+        top: 100px;
+    }
+
+    .iconDiv {
+        margin-top: 150px;
+    }
+
+    .icon {
+        font-size: 120px;
+        color: var(--features-icon-color);
+    }
+
+    #features h3 {
+        font-size: 50px;
+        font-weight: 500;
+    }
+
+    /* CONTACT */
+    #contact {
+        height: 500px;
+    }
+
+    #contact h1 {
+        font-size: 70px;
+    }
+
+    #contact a {
+        font-size: 30px;
+        opacity: 1;
+    }
+
+    .twitter {
+        padding: 40px 15px 15px 25px;
+    }
+
+    .facebook {
+        padding: 40px 30px 15px 30px;
+    }
+
+    .gmail {
+        padding: 40px 20px 15px 20px;
+    }
+
+    footer {
+        height: 150px;
+        font-size: 25px;
+    }
+}
