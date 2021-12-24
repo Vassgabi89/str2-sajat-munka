@@ -1,0 +1,104 @@
+@font-face {
+    font-family: "Roboto", sans-serif;
+}
+
+@font-face {
+    font-family: "Digital";
+    src: url(../fonts/digital-7.ttf);
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto";
+    background-color: darkgrey;
+}
+
+.calculator {
+    width: 370px;
+    margin: auto;
+    margin-top: 5vw;
+    background-color: rgb(229, 226, 226);
+    border-radius: 10px;
+    box-shadow: 2px 2px 3px gray;
+}
+
+/*button rows*/
+.calculator>div {
+    display: flex;
+    flex-direction: row;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 50px;
+}
+
+.calculator>div:last-child {
+    padding-bottom: 20px !important;
+}
+
+.calculator>div:first-child {
+    height: 80px;
+}
+
+.operatorSymbols>div {
+    background-color: rgb(184, 184, 184) !important;
+}
+
+.screen {
+    text-align: right !important;
+    padding-right: 5px;
+    margin-top: 20px !important;
+    margin-bottom: 15px !important;
+    background-color: white !important;
+    width: 100% !important;
+    box-shadow: none !important;
+    border: 2px solid rgb(185, 184, 184) !important;
+    font-family: "Digital";
+}
+
+/*screen content*/
+.green {
+    color: limegreen !important;
+}
+
+.red {
+    color: red !important;
+}
+
+.normalNumber {
+    font-size: 30px !important;
+    padding-top: 0 !important;
+}
+
+.tooLongNumber {
+    font-size: 20px !important;
+    padding-top: 10px !important;
+}
+
+/*buttons*/
+.calculator>div>div {
+    font-size: large;
+    font-weight: 900;
+    text-align: center;
+    padding-top: 10px;
+    width: 70px;
+    height: 30px;
+    background-color: rgb(218, 218, 218);
+    margin: 5px;
+    user-select: none;
+    border: 1px solid rgb(185, 184, 184);
+    box-shadow: 2px 2px 2px gray;
+}
+
+.calculator>div>div:active {
+    box-shadow: -1px -1px 2px gray;
+}
+
+/*equal-button*/
+#C-equal {
+    padding-top: 85px !important;
+    float: right;
+    color: white;
+    background-color: deepskyblue !important;
+    height: 105px !important;
+}

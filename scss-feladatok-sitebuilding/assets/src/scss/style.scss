@@ -1,11 +1,13 @@
+@use "sass:list";
 @use "sass:map";
+@use "./mixins/_positions.scss" as *;
+@use "./variables/spaces" as *; //spaces for margin and padding
+@use "./variables/colors" as *; //colors
+@use "./variables/fonts" as *; //fonts
+@use "./variables/breakpoints" as *; //breakpoints
+@use "./variables/animation" as *; //breakpoints
 
-//using sass to import color variables
-@use "./variables/colors" as *;
-//using sass to import fonts and making classes with loops
-@use "./variables/fonts" as *;
-
-@each $name,$source in $fonts {
+@each $name,$source in $fonts { //making fonts classes
     @font-face {
         font-family: $name;
         src: url($source);
@@ -17,6 +19,20 @@
     }
 }
 
+@for $i from 1 through 6 { //making margin and padding classes
+    @for $j from 1 through 4 {
+        .margin-#{list.nth($directions, $j)}-#{$i} {
+            margin-#{list.nth($directions,$j)}:#{list.nth($spaces,$i)} !important;
+        }
+        .padding-#{list.nth($directions, $j)}-#{$i} {
+            padding-#{list.nth($directions,$j)}:#{list.nth($spaces,$i)} !important;
+        }
+    }
+}
+
+$lg: map.get($breakpoints,'lg'); //get lg breakpoint
+$transtime: map.get($animation,'transitionTime'); //get animation time
+
 /*All site*/
 
 html {
@@ -24,18 +40,30 @@ html {
 }
 
 *:hover {
-    transition: all 300ms;
+    transition: all $transtime;
 }
 
-.rounded-pill {
+.main-button {
     font-family: 'Lato';
     padding: 10px 35px 10px 35px;
     letter-spacing: 2px;
+    border-radius: 20px;
+    border: 1px solid $white;
+    color: $white;
+    font-size: 10px;
+
+    @media screen and (max-width: $lg) {
+        & {
+            padding: 15px 45px 15px 45px;
+        }
+    }
 
     &:hover {
-        background-color: $primary-color;
+        background-color: $primary-color !important;
         border: $primary-color;
-        transition: 300ms
+        transition: $transtime;
+        text-decoration: none !important;
+        color: $black;        
     }
 }
 
@@ -44,61 +72,203 @@ html {
 .navbar-brand {
     color: $primary-color !important;
 
+    @media screen and (max-width: $lg) {
+        & {
+        padding-left: 0px;
+        }
+    }
+
     &:hover {
-        color: white !important;
+        color: $white !important;
     }
 }
 
 .scrolled .navbar-brand {
-    color: black !important;
+    color: $black !important;
+
     &:hover {
         color: $primary-color !important;
+    }
+
+    @media screen and (max-width: $lg) {
+        &{
+            color: $primary-color !important;
+        }
     }    
 }
 
+//ez majd működni fog a fixed-top bs osztály helyett ha törlöd a FIXED-TOP osztályt
+/*
+nav {
+    position: fixed;
+}
+*/
 .nav-link {
     font-size: 10px;
-    color: rgb(214, 196, 213) !important;
+    color: $navbar-color !important;
+
+    @media screen and (max-width: $lg) {
+        & {
+            color: $black;
+        }
+    }
+
     &:hover {
-        color: white !important;
+        color: $white !important;
+    }
+
+    &:focus {
+        @media screen and (max-width: $lg) {
+            & {
+                color: $primary-color !important;
+            }
+        }
+    }
+}
+
+#new-age button {
+    margin-right: 0px;
+    color: black;
+    font-weight: 600;
+
+    @media screen and (max-width: $lg) {
+        margin-right: 3rem;
+    }
+}
+
+#hamburgerMenu {
+    justify-content: end;
+    text-align: right;
+    font-weight: 600;
+    margin-right: 3rem;
+    padding-right: 3rem;
+
+    @media screen and (max-width: $lg) {
+        margin-right: 0px;
+        padding-right: 0px;
+    }
+}
+
+.link-1 {
+    padding-right: 0;
+
+    @media screen and (max-width: $lg) {
+        padding-right: 3rem !important;
+    }
+}
+
+.link-2, .link-3 {
+    padding-right: 0.25rem;
+
+    @media screen and (max-width: $lg) {
+        padding-right: 3rem !important;
     }
 }
 
 .scrolled .nav-link {
-    color: black !important;
+    color: $black !important;
+
     &:hover {
         color: $primary-color !important;
     }
 }
 
 .scrolled {
-    background-color: white;
+    background-color: $white;
 }
 
 #new-age {
     height: 850px;
     background: url('/assets/img/bg-pattern.png'), linear-gradient(to right, $new-age-bg-left, $new-age-bg-right);
     background-repeat: repeat;
-}
 
-#new-age-content {
-    padding-top: 130px;
-}
+    @media screen and (max-width: $lg) {
+        & {
+            height: 1400px;
+            text-align: center;
+        }
+    }
 
-#new-age h1 {
-    font-size: 45px;
-    line-height: 55px;
+    &-content {
+        padding-top: 130px;
+
+        & .row{
+            justify-content: center;
+
+            & .col-lg-5 {
+                color: $white;
+                margin-right: 3rem;
+                margin-top: 3rem;
+                padding-top: 1.5rem;
+                
+                @media screen and (max-width: $lg) {
+                    margin-right: 0;
+                    margin-top: 0;
+                    padding-top: 0;
+                }
+            }
+
+            & .col-lg-4{
+                margin-top: 0;
+                margin-left: 3rem;
+                padding-left: 3rem;
+                
+                @media screen and (max-width: $lg) {
+                    margin-top: 3rem;
+                    margin-left: 0;
+                    padding-left: 0;
+                }
+            }
+        }
+
+        & .main-button{
+            display: inline-block;
+            margin-top: 1.5rem;
+            
+            @media screen and (max-width: $lg) {
+                margin-right: 3rem;
+                margin-top: 3rem;
+            }
+        }
+    }
+
+    & h1 {
+        font-size: 45px;
+        line-height: 55px;
+        
+        @media screen and (max-width: $lg) {
+            & {
+            font-size: 40px;
+            line-height: 50px;
+            }
+        }
+    }
 }
 
 #phone {
     height: 550px;
-}
 
-#phone-screen {
-    height: 425px;
-    position: relative;
-    bottom: 488px;
-    left: 17px;
+    @media screen and (max-width: $lg) {
+        & {
+            height: 800px;
+        }
+    }
+
+    &-screen {
+        height: 425px;
+        position: relative;
+        bottom: 488px;
+        left: 17px;
+        
+        @media screen and (max-width: $lg) {
+                & {
+                height: 615px;
+                left: 0;
+                bottom: 708px;
+            }
+        }
+    }
+    
 }
 
 /*DOWNLOAD*/
@@ -110,34 +280,158 @@ html {
 
 #download {
     height: 550px;
-}
 
-#download img {
-    width: 200px;
-}
+    @media screen and (max-width: $lg) {
+        & {
+            height: 900px;
+        }
+    }
 
-#download h1 {
-    font-weight: 500;
-}
+    & img {
+        width: 200px;
+    
+        @media screen and (max-width: $lg) {
+            &{
+                width: 300px;
+            }
+        }
+    }
 
-#download p {
-    font-weight: 600;
-    font-size: 20px;
+    & h1 {
+        font-weight: 500;
+        font-size: 70px; //display-3
+
+        @media screen and (max-width: $lg) {
+            & {
+                font-weight: 500;
+                font-size: 80px;
+            }
+        }
+    }
+
+    & p {
+        font-weight: 600;
+        font-size: 20px;
+    
+        @media screen and (max-width: $lg) {
+            & {
+                font-weight: 600;
+                font-size: 25px;
+            }
+        }
+    }
+
+    & > div {
+        height: 100%;
+        @include flex-column;
+        text-align: center;
+
+        & > div {
+            margin: auto;
+
+            & > div {
+                @include flex-row;
+                justify-content: center;
+
+                @media screen and (max-width: $lg) {
+                    display: block;
+                }
+
+                & > div {
+                    margin-right: 0.25rem;
+                    margin-bottom: 0;
+
+                    @media screen and (max-width: $lg) {
+                        margin-right: 0;
+                        margin-bottom: 1.5rem;
+                    }
+                }
+            }
+        }
+    }
 }
 
 /*FEATURES*/
 
 #features {
     height: 950px;
-}
+    text-align: center;
 
-#features h1 {
-    font-size: 45px;
-    font-weight: 500;
+    @media screen and (max-width: $lg) {
+        & {
+            height: 3300px;
+        }
+    }
+    
+    & h1 {
+        font-size: 45px;
+        font-weight: 500;
+        text-align: center;
+    
+        @media screen and (max-width: $lg) {
+            & {
+                font-size: 70px;
+                font-weight: 500;
+            }
+        }
+    }
+
+    & p {
+        color: $gray;
+
+        @media screen and (max-width: $lg) {
+            & {
+                font-size: 25px;
+                font-weight: 600;
+            }
+        }
+    }
+
+    & h3 {
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+        @media screen and (max-width: $lg) {
+            & {
+                font-size: 50px;
+                font-weight: 500;
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &-content {
+
+        & > div {
+            margin-top: 1rem;
+            
+            @media screen and (max-width: $lg) {
+                & {
+                    margin-top: 0;
+                }
+            }
+        
+            & > div:nth-child(2),  & > div:nth-child(3){
+                margin-top: 3rem;
+
+                @media screen and (max-width: $lg) {
+                    & {
+                        margin-top: 0;
+                    }
+                }
+            }
+        }
+    }
 }
 
 #phone2 {
     height: 550px;
+
+    @media screen and (max-width: $lg) {
+        & {
+            height: 900px;
+        }
+    }
 }
 
 #phone-screen2 {
@@ -145,211 +439,242 @@ html {
     position: relative;
     bottom: 490px;
     left: 10px;
-}
 
-.iconDiv {
-    border-bottom: 1px solid;
-    border-image: linear-gradient(to right, #da2431, #7a4397);
-    border-image-slice: 1;
+    @media screen and (max-width: $lg) {
+        & {
+            height: 695px;
+            position: absolute;
+            left: 164px;
+            top: 100px;
+        }
+    }
 }
 
 .icon {
     font-size: 70px;
     color: $features-icon-color;
+
+    @media screen and (max-width: $lg) {
+        & {font-size: 120px;
+        color: $features-icon-color;
+        }
+    }
+
+    &Div {
+        border-bottom: 1px solid;
+        border-image: linear-gradient(to right, #da2431, #7a4397);
+        border-image-slice: 1;
+
+        @media screen and (max-width: $lg) {
+            & {
+                margin-top: 150px;
+            }
+        }
+    }
 }
 
 /*STOPWAITING*/
 
 #stopWaiting {
+    min-width: 100vw;
     height: 680px;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/assets/img/bg-cta.jpg');
     background-size: cover;
     background-position: center;
-}
 
-#stopWaiting h1 {
-    font-size: 70px;
+    & > div {
+        height: 100%;
+        
+        & > div {
+            height: 100%;
+
+            & > div {
+                margin-top: auto;
+                margin-bottom: auto;
+                margin-left: 3rem;
+                padding-left: 3rem;
+
+                @media screen and (max-width: $lg) {
+                    & {
+                        margin-left: 0;
+                        padding-left: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    & h1 {
+        font-size: 70px;
+        color: $white;
+    }
+
+    & .main-button {
+        margin-top: 1rem;
+
+        @media screen and (max-width: $lg) {
+            margin-top: 1.5rem;
+        }
+    }
 }
 
 /*CONTACT*/
 #contact {
     height: 320px;
+    text-align: center;
+
+    @media screen and (max-width: $lg) {
+        & {
+            height: 500px;
+        }
+    }
+
+    & > div {
+        height: 100%;
+        
+        & > div {
+            height: 100%;
+            justify-content: center;
+
+            & > div {
+                margin-top: auto;
+                margin-bottom: auto;
+            }
+        }
+    }
+
+    & h1 {
+        font-size: 50px;
+
+        @media screen and (max-width: $lg) {
+
+            & {
+                font-size: 70px;
+            }
+        }
+    }
+
+    & nav {
+        margin-top: 1.5rem;
+        
+        @media screen and (max-width: $lg) {
+            & {
+                margin-top: 1.5rem;                
+            }
+        }
+    }
+
+    & a {
+        color: $white;
+        border-radius: 100%;
+        opacity: 0.9;
+
+        &:hover{
+            opacity: 1;
+        }
+
+        @media screen and (max-width: $lg) {
+            & {
+                font-size: 30px;
+                opacity: 1;
+            }
+        }
+    }
 }
 
-#contact h1 {
-    font-size: 50px;
+.heart {
+    color: $heart;
 }
 
-#contact a {
-    border-radius: 100%;
-    opacity: 0.9;
-}
-
-#contact a:hover {
-    opacity: 1;
+.social {
+    justify-content: center;
+    height: 100%;
 }
 
 .twitter {
-    background-color: rgb(29, 161, 243);
+    background-color: $twitter;
     padding: 30px 18px 15px 22px;
+    margin-right: 0.5rem;
+    
+    @media screen and (max-width: $lg) {
+        & {
+            padding: 40px 15px 15px 25px;
+            margin-right: 1rem;
+        }
+    }
 }
 
 .facebook {
-    background-color: rgb(59, 89, 153);
+    background-color: $facebook;
     padding: 30px 25px 15px 25px;
+    margin-right: 0.5rem;
+
+    @media screen and (max-width: $lg) {
+        & {
+            padding: 40px 30px 15px 30px;
+            margin-right: 1rem;
+        }
+    }
 }
 
 .gmail {
-    background-color: rgb(215, 74, 53);
+    background-color: $gmail;
     padding: 30px 20px 15px 20px;
+
+    @media screen and (max-width: $lg) {
+        & {
+            padding: 40px 20px 15px 20px;
+        }
+    }
 }
 
 /*FOOTER*/
 
 footer {
+    color: $gray;
+    text-align: center;
     height: 110px;
     background-color: $footer-bg;
-}
 
-footer span {
-    cursor: pointer;
-}
-
-footer span:hover {
-    color: $primary-color !important;
-}
-
-@media screen and (max-width: 991px) {
-
-    .rounded-pill {
-        padding: 15px 45px 15px 45px;
+    @media screen and (max-width: $lg) {
+        & {
+            height: 150px;
+            font-size: 25px;
+        }
     }
 
-    /*NEW-AGE*/
-    #new-age {
-        height: 1400px;
-        text-align: center;
+    & > div {
+        height: 100%;
+        
+        & > div {
+            height: 100%;
+            justify-content: center;
+
+            & > div {
+                margin-top: auto;
+                margin-bottom: auto;
+
+                & > div {
+                    padding-top: 0.25rem;
+                    
+                    @media screen and (max-width: $lg) {
+                        & {
+                            padding-top: 0.5rem;
+                        }
+                    }
+                }
+            }
+        }
     }
 
-    #new-age .nav-link {
-        color: black;
-    }
+    & span {
+        cursor: pointer;
 
-    .scrolled .navbar-brand {
-        color: $primary-color !important;
-    }
-
-    #new-age .nav-link:focus {
-        color: $primary-color !important;
-    }
-
-    #new-age h1 {
-        font-size: 40px;
-        line-height: 50px;
-    }
-
-    #phone {
-        height: 800px;
-    }
-
-    #phone-screen {
-        height: 615px;
-        left: 0;
-        bottom: 708px;
-    }
-
-    /*DOWNLOAD*/
-    #download {
-        height: 900px;
-    }
-
-    #download img {
-        width: 300px;
-    }
-
-    #download h1 {
-        font-weight: 500;
-        font-size: 80px;
-    }
-
-    #download p {
-        font-weight: 600;
-        font-size: 25px;
-    }
-
-    /*FEATURES*/
-    #features {
-        height: 3300px;
-    }
-
-    #features h1 {
-        font-size: 70px;
-        font-weight: 500;
-    }
-
-    #features P {
-        font-size: 25px;
-        font-weight: 600;
-    }
-
-    #phone2 {
-        height: 900px;
-    }
-
-    #phone-screen2 {
-        height: 695px;
-        position: absolute;
-        left: 164px;
-        top: 100px;
-    }
-
-    .iconDiv {
-        margin-top: 150px;
-    }
-
-    .icon {
-        font-size: 120px;
-        color: $features-icon-color;
-    }
-
-    #features h3 {
-        font-size: 50px;
-        font-weight: 500;
-    }
-
-    /* CONTACT */
-    #contact {
-        height: 500px;
-    }
-
-    #contact h1 {
-        font-size: 70px;
-    }
-
-    #contact a {
-        font-size: 30px;
-        opacity: 1;
-    }
-
-    .twitter {
-        padding: 40px 15px 15px 25px;
-    }
-
-    .facebook {
-        padding: 40px 30px 15px 30px;
-    }
-
-    .gmail {
-        padding: 40px 20px 15px 20px;
-    }
-
-    footer {
-        height: 150px;
-        font-size: 25px;
+        &:hover {
+            color: $primary-color !important;
+        }
     }
 }
-
-
 
 
 
