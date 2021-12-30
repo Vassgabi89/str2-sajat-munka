@@ -1,0 +1,211 @@
+@font-face {
+    font-family: 'Roboto';
+}
+
+:root {
+    --primary-color: rgb(233, 181, 114);
+    --secondary-color: rgb(245, 110, 110);
+    --light-grey: rgb(236, 230, 230);
+    --grey: rgb(218, 212, 212);
+    --darkgrey: rgb(184, 177, 177);
+    --darkergrey: rgb(129, 125, 125);
+    --blue: rgb(0, 123, 255);
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto';
+    color: var(--darkergrey);
+    background: linear-gradient(to left, var(--primary-color), var(--secondary-color));
+    user-select: none;
+}
+
+.title {
+    color: white;
+    text-align: center;
+}
+
+.todoDiv {
+    width: 60vw;
+    margin: auto;
+    padding: 50px;
+    background-color: var(--grey);
+    border-radius: 10px;
+}
+
+.date {
+    margin-top: 40px;
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.date p {
+    margin: 0;
+}
+
+.input {
+    display: flex;
+    margin: 40px 0;
+}
+
+.addInput {
+    flex: auto;
+    border: 1px solid var(--darkgrey);
+    border-radius: 3px;
+    padding-left: 10px;
+    font-size: 20px;
+}
+
+.addInput::-webkit-input-placeholder {
+    font-style: italic;
+    color: var(--darkgrey);
+}
+
+.addInput:focus {
+    background-color: white;
+    outline: none;
+    border: 2px solid var(--blue);
+}
+
+.addBtn {
+    margin-left: 10px;
+    color: white;
+    padding: 7px 30px;
+    background-color: var(--darkgrey);
+    border-radius: 5px;
+    font-size: 1.5rem;
+    border: 0;
+}
+
+.addBtn:hover {
+    background-color: var(--blue);
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.pending>div {
+    background-color: var(--darkgrey);
+    margin-bottom: 10px;
+    display: flex;
+    border-radius: 5px;
+}
+
+.pending>div:hover {
+    background-color: var(--darkergrey);
+}
+
+.pending>div input {
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.pending>div span {
+    flex: auto;
+    margin-left: 10px;
+    padding: 10px 0;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.pending>div button {
+    border: none;
+    color: white;
+    width: 50px;
+    background-color: var(--secondary-color);
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 1.5s;
+}
+
+.visible {
+    opacity: 1 !important;
+    transition: opacity 1s;
+}
+
+.newTask {
+    animation: appear 2s;
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.doneTask {
+    animation: disappear 2s;
+}
+
+@keyframes disappear {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.pending h1 {
+    color: var(--secondary-color);
+    text-align: center;
+}
+
+.pending img {
+    width: 100%;
+}
+
+.done {
+    margin: 40px 0;
+}
+
+.done>div {
+    background-color: var(--light-grey);
+    margin-bottom: 10px;
+    display: flex;
+    border-radius: 5px;
+}
+
+.done>div input {
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.done>div span {
+    text-decoration: line-through;
+    flex: auto;
+    margin-left: 10px;
+    padding: 10px 0;
+    font-size: 1.5rem;
+}
+
+.buttons {
+    display: flex;
+}
+
+.buttons button {
+    flex: auto;
+    background: none;
+    border: none;
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.buttons button:hover {
+    color: var(--primary-color);
+    text-shadow: none;
+}
