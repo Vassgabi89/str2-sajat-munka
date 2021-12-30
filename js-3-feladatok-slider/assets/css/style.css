@@ -1,0 +1,123 @@
+@font-face {
+    font-family: 'Roboto';
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto';
+    background-color: darkgray;
+}
+
+.carousel {
+    background-color: white;
+}
+
+.counter {
+    position: absolute;
+    z-index: 4;
+    color: white;
+    font-size: 20px;
+    font-weight: bolder;
+    margin: 15px;
+}
+
+.content>div {
+    position: absolute;
+    z-index: 1;
+}
+
+.active {
+    z-index: 3 !important;
+    animation: animated_to-left 1000ms;
+}
+
+.before {
+    z-index: 2 !important;
+}
+
+.right {
+    animation: animated_to-right 1000ms !important;
+}
+
+@keyframes animated_to-left {
+    0% {
+        left: 100vw;
+    }
+
+    100% {
+        left: 0;
+    }
+}
+
+@keyframes animated_to-right {
+    0% {
+        right: 100vw;
+    }
+
+    100% {
+        right: 0;
+    }
+}
+
+.content img {
+    border: 5px solid white;
+    object-fit: cover;
+    width: 100vw;
+    box-sizing: border-box;
+}
+
+.nextBtn,
+.prevBtn {
+    z-index: 4;
+    position: absolute;
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+}
+
+.nextBtn {
+    right: 2%;
+}
+
+.prevBtn {
+    left: 2%;
+}
+
+.title {
+    width: 100vw;
+    text-shadow: 2px 2px black;
+    z-index: 4;
+    position: absolute;
+    background: none;
+    color: white;
+    text-align: center;
+    user-select: none;
+}
+
+.indicators {
+    background-color: white;
+    width: 100vw;
+    height: 50px;
+    position: absolute;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.indicators button {
+    margin-top: 20px;
+    margin-right: 10px;
+    background-color: rgb(201, 200, 200);
+    border: none;
+    border-radius: 50%;
+    height: 15px;
+    width: 15px;
+    cursor: pointer;
+}
+
+.selected {
+    background-color: rgb(145, 145, 145) !important;
+}

@@ -1,0 +1,27 @@
+{
+  "pictures": [{
+  "id": 1,
+  "name": "Cacao",
+  "img": "https://cdn3.dpmag.com/2021/07/Landscape-Tips-Mike-Mezeul-II.jpg"
+}, {
+  "id": 2,
+  "name": "Common Lomatium",
+  "img": "https://cdn3.dpmag.com/2021/07/Landscape-Tips-1-Mike-Mezeul-II.jpg"
+}, {
+  "id": 3,
+  "name": "Franklin Spiderlily",
+  "img": "https://cdn3.dpmag.com/2021/07/Landscape-Tips-3-Mike-Mezeul-II.jpg"
+}, {
+  "id": 4,
+  "name": "Dotted Hawthorn",
+  "img": "https://cdn3.dpmag.com/2021/07/Landscape-Tips-4-Mike-Mezeul-II.jpg"
+}, {
+  "id": 5,
+  "name": "Shield Lichen",
+  "img": "https://cdn3.dpmag.com/2021/07/Landscape-Tips-5-Mike-Mezeul-II-1.jpg"
+}, {
+  "id": 6,
+  "name": "Snowy Mountain",
+  "img": "https://cdn3.dpmag.com/2021/07/Landscape-Tips-6-Mike-Mezeul-II.jpg"
+}]
+}
