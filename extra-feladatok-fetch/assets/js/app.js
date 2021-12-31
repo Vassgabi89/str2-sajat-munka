@@ -1,221 +1,89 @@
 'use strict'
 
-let showAll = 'Show'
+const team_url = 'https://raw.githubusercontent.com/jokecamp/FootballData/master/UEFA_European_Championship/Euro%202016/players_json/teams.json'
+const players_url = 'https://raw.githubusercontent.com/jokecamp/FootballData/master/UEFA_European_Championship/Euro%202016/players_json/hungary-players.json'
 
-const start = () => {
-  updateDate()
-  listing()
-  const addBtn = document.querySelector('.addBtn')
-  addBtn.addEventListener('click', function () {
-    saveTodo()
-  })
+const start = async (url) => {
+  try {
+    const response = await fetch(url)
+    const result = await response.json()
+    fillTeamData(result)
+    fillPlayersData(result)
+  } catch (error) {
+    console.error(error)
+    return []
+  }
 }
 
-const updateDate = () => {
-  const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-  let dateNow = new Date()
-  const date = document.querySelector('.date')
-  date.innerHTML = `<p>${weekday[dateNow.getDay()]}</p><p>${dateNow.getDate()}-${dateNow.getMonth()+1}-${dateNow.getFullYear()}</p>`
-}
-
-const listing = () => {
-  const pending = document.querySelector('.pending')
-  if ((getTodo() !== null) && (getTodo().length > 0)) {
-    pending.innerHTML = `<h2>You have ${numberOfTodos()-numberOfCompletedTodos()} pending items</h2>`
-    let taskList = getTodo()
-    for (let i = taskList.length - 1; i >= 0; i--) {
-      if (taskList[i].done === false) {
-        const taskDiv = document.createElement('div')
-        taskDiv.classList.add(taskList[i].id)
-        pending.appendChild(taskDiv)
-        taskDiv.innerHTML = `<input type="checkbox" id="check-${taskList[i].id}"><span>${taskList[i].task}</span><button class="delBtn" title="Delete task"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></button>`
-        taskDiv.addEventListener('mouseenter', function () {
-          this.lastChild.classList.add('visible')
-        })
-        taskDiv.addEventListener('mouseleave', function () {
-          this.lastChild.classList.remove('visible')
-        })
+const fillTeamData = (datas) => {
+  let hungarian_team = []
+  if (datas.sheets.Teams) {
+    datas.sheets.Teams.forEach(team => {
+      if (team.Team === 'Hungary') {
+        hungarian_team = team
       }
-    }
-    const buttonsDiv = document.querySelector('.buttons')
-    buttonsDiv.innerHTML = `<button>${showAll} Complete</button><button>Clear All</button>`
-    listeners()
-    if (showAll === 'Hide') {
-      listingAll()
-    } else {
-      const done = document.querySelector('.done')
-      done.innerHTML = ''
-    }
-  }
-  if (numberOfTodos() - numberOfCompletedTodos() === 0) {
-    pending.innerHTML = `<img src="./assets/img/best-beach-drinks-top-768x512.jpg" alt="Beach with cocktail"><h1>Time to chill! You have no todos.</h1>`
-    const done = document.querySelector('.done')
-    done.innerHTML = ''
-    const buttonsDiv = document.querySelector('.buttons')
-    buttonsDiv.innerHTML = ''
-  }
-}
-
-const listingAll = () => {
-  const done = document.querySelector('.done')
-  let counter = Math.round((numberOfCompletedTodos() / numberOfTodos()) * 100)
-  done.innerHTML = `<h2>Completed tasks: ${counter}%</h2>`
-  let taskList = getTodo()
-  taskList.forEach(task => {
-    if (task.done === 'true') {
-      const taskDiv = document.createElement('div')
-      done.appendChild(taskDiv)
-      taskDiv.innerHTML = `<input type="checkbox" checked disabled="disabled"><span>${task.task}</span>`
-    }
-  })
-}
-
-const listeners = () => {
-  const delBtns = document.querySelectorAll('.delBtn')
-  delBtns.forEach(delBtn => {
-    delBtn.addEventListener('click', function () {
-      delTodo(this.parentElement.className)
     })
-  })
-  const checkBtns = document.querySelectorAll('*[id^="check-"]')
-  checkBtns.forEach(checkBtn => {
-    checkBtn.addEventListener('change', function () {
-      this.parentElement.classList.add('doneTask')
-      setTimeout(() => {
-        this.parentElement.classList.remove('doneTask')
-        doneTodo(this.parentElement.className)
-      }, 2000)
-
-    })
-  })
-  const buttonsDiv = document.querySelector('.buttons')
-  buttonsDiv.firstChild.addEventListener('click', function () {
-    if (showAll === 'Show') {
-      showAll = 'Hide'
-    } else {
-      showAll = 'Show'
-    }
-    listing()
-  })
-  buttonsDiv.lastChild.addEventListener('click', function () {
-
-    if ((getTodo() !== null) && (getTodo().length > 0)) {
-      let taskList = getTodo()
-      for (let i = 0; i < taskList.length; i++) {
-        if (taskList[i].done === false) {
-          taskList.splice(i, 1)
-          i--
+    const teamDiv = document.querySelector('.team')
+    teamDiv.innerHTML = ''
+    const table = document.createElement('table')
+    table.classList.add('teamTable')
+    teamDiv.appendChild(table)
+    for (const key in hungarian_team) {
+      if (Object.hasOwnProperty.call(hungarian_team, key)) {
+        if (!((key === 'Byline') || (key === 'Bio') || (key === 'strengths') || (key === 'weaknesses'))) {
+          let row = table.insertRow()
+          row.insertCell().innerHTML = key
+          row.insertCell().innerHTML = hungarian_team[key]
         }
-        console.log(taskList)
       }
-      localStorage.setItem('task-list', JSON.stringify(taskList))
-      listing()
-    }
-    //localStorage.clear()
-  })
-}
-
-const saveTodo = () => {
-  const addInput = document.querySelector('.addInput')
-  const newTaskInput = addInput.value
-  addInput.value = ''
-  if (newTaskInput.length === 0) {
-    return 0
-  }
-  let newTask = {}
-  if ((getTodo() !== null) && (getTodo().length > 0)) {
-    newTask = {
-      id: highestID() + 1,
-      task: newTaskInput,
-      done: false
-    }
-    let taskList = getTodo()
-    taskList.push(newTask)
-    localStorage.clear()
-    localStorage.setItem('task-list', JSON.stringify(taskList))
-  } else {
-    newTask = {
-      id: 0,
-      task: newTaskInput,
-      done: false
-    }
-    let taskList = []
-    taskList[0] = newTask
-    localStorage.setItem('task-list', JSON.stringify(taskList))
-  }
-
-  const pending = document.querySelector('.pending')
-  const taskDiv = document.createElement('div')
-  taskDiv.innerHTML = `<input type="checkbox"><span>${newTask.task}</span><button class="delBtn" title="Delete task"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></button>`
-  taskDiv.classList.add(newTask.id)
-  taskDiv.classList.add('newTask')
-  pending.insertBefore(taskDiv, pending.childNodes[1])
-
-  setTimeout(() => {
-    taskDiv.classList.remove('newTask')
-    listing()
-  }, 2000)
-}
-
-const delTodo = (id) => {
-  let taskList = getTodo()
-  localStorage.clear()
-  for (let i = 0; i < taskList.length; i++) {
-    if (taskList[i].id === parseInt(id)) {
-      taskList.splice(i, 1)
-      break
     }
   }
-  localStorage.setItem('task-list', JSON.stringify(taskList))
-  listing()
 }
 
-const doneTodo = (id) => {
-  let taskList = getTodo()
-  localStorage.clear()
-  for (let i = 0; i < taskList.length; i++) {
-    if (taskList[i].id === parseInt(id)) {
-      taskList[i].done = 'true'
-      break
-    }
+const fillPlayersData = (datas) => {
+  if (datas.sheets.Players) {
+
+    let players = datas.sheets.Players.sort(compare).sort(compare2)
+
+    const playersDiv = document.querySelector('.players')
+    playersDiv.innerHTML = ''
+    const table = document.createElement('table')
+    table.classList.add('playersTable')
+    playersDiv.appendChild(table)
+
+    players.forEach(player => {
+      let row = table.insertRow()
+      console.log(player.name)
+      row.insertCell().innerHTML = player.name
+      row.insertCell().innerHTML = player.position
+      row.insertCell().innerHTML = player.club
+    })
   }
-  localStorage.setItem('task-list', JSON.stringify(taskList))
-  listing()
 }
 
-const getTodo = () => {
-  return JSON.parse(localStorage.getItem('task-list'))
+const compare = (a, b) => {
+  let clubOne = a.club
+  let clubTwo = b.club
+  if (clubOne < clubTwo) {
+    return -1
+  }
+  if (clubOne > clubTwo) {
+    return 1
+  }
+  return 0
 }
 
-const numberOfTodos = () => {
-  let taskList = getTodo()
-  let numberOfTodos = 0
-  taskList.forEach(task => {
-    numberOfTodos++
-  })
-  return numberOfTodos
+const compare2 = (a, b) => {
+  let positionOne = a.position
+  let positionTwo = b.position
+  if (positionOne < positionTwo) {
+    return -1
+  }
+  if (positionOne > positionTwo) {
+    return 1
+  }
+  return 0
 }
 
-const numberOfCompletedTodos = () => {
-  let taskList = getTodo()
-  let numberOfCompletedTodos = 0
-  taskList.forEach(task => {
-    if (task.done === 'true') {
-      numberOfCompletedTodos++
-    }
-  })
-  return numberOfCompletedTodos
-}
-
-const highestID = () => {
-  let taskList = getTodo()
-  let highestID = 0
-  taskList.forEach(task => {
-    if (task.id > highestID) {
-      highestID = task.id
-    }
-  })
-  return highestID
-}
-
-start()
+start(team_url)
+start(players_url)
