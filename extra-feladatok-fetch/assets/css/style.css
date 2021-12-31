@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'Roboto';
+}
+
+:root {
+    --primary-color: rgb(233, 181, 114);
+    --secondary-color: rgb(245, 110, 110);
+    --light-grey: rgb(236, 230, 230);
+    --grey: rgb(218, 212, 212);
+    --darkgrey: rgb(184, 177, 177);
+    --darkergrey: rgb(129, 125, 125);
+    --blue: rgb(0, 123, 255);
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto';
+    user-select: none;
+}
+
+.container {
+    width: 50%;
+    display: flex;
+}
+
+.flag {
+    color: white;
+    text-align: center;
+}

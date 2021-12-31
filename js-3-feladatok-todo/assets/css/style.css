@@ -209,3 +209,37 @@ html {
     color: var(--primary-color);
     text-shadow: none;
 }
+
+@media only screen and (max-width: 1000px) {
+.title {
+    font-size: 40px;
+}
+
+.todoDiv {
+    width: 95vw;
+    padding: 5px;
+}
+
+.date {
+    margin-top: 20px;
+    font-size: 30px;
+}
+
+.input {
+    margin: 20px 0;
+    height: 40px;
+}
+
+.addBtn {
+    margin-left: 5px;
+}
+
+.done {
+    margin: 20px 0;
+}
+
+.buttons {
+    margin-bottom: 15px;
+}
+
+}
