@@ -1,0 +1,134 @@
+@font-face {
+    font-family: 'Roboto';
+}
+
+:root {
+    --color-1: rgb(99, 221, 94);
+    --new-age-bg-left: rgb(217, 36, 51);
+    --new-age-bg-right: rgb(125, 66, 148);
+    --features-icon-color: rgb(178, 50, 93);
+    --footer-bg: rgb(34, 34, 34);
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto';
+}
+
+header {
+    margin-bottom: 10px;
+}
+
+/*DIFFICULTY MENU*/
+.dropdown {
+    display: inline-block;
+    color: white;
+    margin: 20px;
+    padding: 5px;
+    background-color: var(--color-1);
+    border: 1px solid black;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    user-select: none;
+    font-size: 20px;
+}
+
+.dropdown:hover {
+    box-shadow: none;
+    background-color: white;
+    color: black;
+}
+
+.dropdown-content {
+    color: black;
+    text-align: center;
+    display: none;
+    position: absolute;
+    border: 1px solid var(--color-1);
+    background-color: #f9f9f9;
+    width: 152px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    margin-top: 6px;
+    left: 20px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content p {
+    margin: 0 0;
+    padding: 10px 0;
+}
+
+.dropdown-content p:hover {
+    background-color: var(--color-1);
+    color: white;
+    cursor: pointer;
+}
+
+#audioBtn {
+    vertical-align: top;
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 200px;
+}
+
+/*PLAY AREA*/
+.balloons {
+    display: inline-block;
+    position: relative;
+    left: 200px;
+    padding: 30px;
+    margin: auto;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.balloons>div {
+    align-items: center;
+}
+
+.balloons>div>div {
+    display: inline;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 5px;
+}
+
+.balloons>div>div {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 5px;
+}
+
+.balloons>div>div p {
+    visibility: hidden;
+    text-align: center;
+    font-weight: bolder;
+    margin-top: 30px;
+    user-select: none;
+}
+
+.visible {
+    visibility: visible !important;
+}
+
+@media only screen and (max-width: 1000px) {
+    .balloons {
+        left: 150px;
+        padding: 30px;
+    }
+
+    .balloons>div>div {
+        width: 50px;
+        height: 50px;
+    }
+}
