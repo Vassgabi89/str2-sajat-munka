@@ -1,0 +1,77 @@
+@font-face {
+    font-family: 'Roboto';
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto';
+}
+
+.converter {
+    background-color: darkgrey;
+    width: 300px;
+    padding: 30px;
+    margin: auto;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+}
+
+.converter h1 {
+    text-align: center;
+}
+
+.converter>div {
+    margin-top: 20px;
+}
+
+.converter label {
+    font-size: 1.3rem;
+}
+
+.converter input{
+    height: 1.5rem;
+    width: 65%;    
+    border: none;
+    outline: none;
+    padding-left: 5px;
+}
+
+#feetInput{
+    margin-left: 30px;
+}
+
+#inchInput{
+    margin-left: 10px;
+}
+
+#convertBtn{
+    font-weight: 600;
+    height: 35px;
+    margin-left: 18%;
+    margin-top: 30px;
+    width: 60%;
+    border: none;
+    border-radius: 10px;
+}
+
+#convertBtn:hover{
+    color: white;
+    background-color: grey;
+}
+
+#output, #result{
+    margin-top: 30px;
+    text-align: center;
+}
+
+#output {
+    font-size: 1.2rem;
+}
+
+#result {
+    font-size: 1.5rem;
+}
