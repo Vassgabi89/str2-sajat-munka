@@ -273,11 +273,6 @@ html {
   }
 }
 
-/*
-nav {
-    position: fixed;
-}
-*/
 .nav-link {
   font-size: 10px;
   color: #d6c4d5 !important;
@@ -330,11 +325,13 @@ nav {
   }
 }
 
-.link-2, .link-3 {
+.link-2,
+.link-3 {
   padding-right: 0.25rem;
 }
 @media screen and (max-width: 991px) {
-  .link-2, .link-3 {
+  .link-2,
+.link-3 {
     padding-right: 3rem !important;
   }
 }
